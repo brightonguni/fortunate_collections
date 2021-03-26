@@ -1,0 +1,196 @@
+<?php
+
+namespace App\Http\Controllers\Web\Faqs;
+
+use App\Http\Controllers\Controller;
+use App\Repositories\web\Blogs\BlogPageRepository;
+use App\Repositories\web\Blogs\BlogRepository;
+use App\Repositories\web\Blogs\CommentsRepository;
+use App\Repositories\web\Bookings\EventsRepository;
+use App\Repositories\web\Products\ProductRepository;
+use App\Repositories\web\Services\ServiceCategoryRepository;
+use App\Repositories\web\Services\ServicesRepository;
+use App\Repositories\web\Stores\StoreRepository;
+use Illuminate\Http\Request;
+
+class WebFaqPageController extends Controller
+{
+    protected $blog;
+    protected $service;
+    protected $case_study;
+    protected $event;
+    protected $comment;
+    protected $page;
+    protected $product;
+    protected $storeRepository;
+    protected $service_category;
+    protected $blog_page;
+    protected $faq_page;
+    public function __construct(
+        ServicesRepository $servicesRepository,
+        BlogRepository $blogRepository,
+        EventsRepository $eventsRepository,
+        CommentsRepository $commentsRepository,
+        BlogPageRepository $blogPageRepository,
+        ProductRepository $productRepository,
+        ServiceCategoryRepository $serviceCategoryRepository,
+        StoreRepository $storeRepository) {
+        $this->page = $blogPageRepository;
+        $this->case_study = $repository;
+        $this->blog = $blogRepository;
+        $this->event = $eventsRepository;
+        $this->service = $servicesRepository;
+        $this->comment = $commentsRepository;
+        $this->product = $productRepository;
+        $this->service_category = $serviceCategoryRepository;
+        $this->store = $storeRepository;$this->faq_page = $faqPageRepository;
+
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $blogs = $this->blog->index();
+        $faq_page = $this->faq_page->index();
+
+        $blog_page = $this->blog_page->index();
+        $categories = $this->blog->allCategories();
+        $services = $this->service->index();
+        $case_studies = $this->case_study->index();
+        $events = $this->event->index();
+        $products = $this->product->index();
+        $stores = $this->store->index();
+        $service_categories = $this->service_category->index();
+        return view('web.pages.faqs.index', compact('faq_page','service_categories', 'stores', 'products', 'blog_page', 'events', 'case_studies', 'blogs', 'categories', 'services'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $blog = $this->blog->get($id);$faq_page = $this->faq_page->index();
+
+        $relatedBlog = $this->blog->getRelatedBlog();
+        $blogs = $this->blog->index();
+        $services = $this->service->index();
+        $events = $this->event->index();
+        $categories = $this->blog->allCategories();
+        $comments = $this->comment->getBlogComments($id);
+        $blog_page = $this->blog_page->index();
+        $products = $this->product->index();
+        $stores = $this->store->index();
+        $service_categories = $this->service_category->index();
+        return view('web.pages.blogs.show', compact('faq_page','blogPage', 'stores', 'service_categories', 'products', 'blog_page', 'comments', 'categories', 'events', 'blog', 'relatedBlog', 'blogs', 'services'));
+
+    }
+    public function loadModal($id)
+    {
+        $blog = $this->blog->get($id);
+        $relatedBlog = $this->blog->getRelatedBlog();
+        $blogs = $this->blog->index();
+        $services = $this->service->index();
+        $events = $this->event->index();
+        $categories = $this->blog->allCategories();
+        $comment = $this->comment->getBlogComments($id);
+        $products = $this->product->index();
+        $blog_page = $this->blog_page->index();
+$faq_page = $this->faq_page->index();
+
+        $stores = $this->store->index();
+        $service_categories = $this->service_category->index();
+        return view('web.components.modals.comment', compact('faq_page','blog_page', 'stores', 'service_categories', 'products', 'comments', 'categories', 'events', 'blog', 'relatedBlog', 'blogs', 'services'));
+
+    }
+    public function showByCategory($id)
+    {
+        $blogByCategories = $this->blog->BlogByCategory($id);
+        $blog = $this->blog->get($id);
+        $blogs = $this->blog->index();
+        $services = $this->service->index();
+        $events = $this->event->index();
+        $products = $this->product->index();
+        $stores = $this->store->index();
+        $service_categories = $this->service_category->index();
+        $blog_page = $this->blog_page->index();
+$faq_page = $this->faq_page->index();
+
+        return view('web.components.templates.blogs.blogBycategory', compact('faq_page','blog_page', 'stores', 'service_categories', 'products', 'blogByCategories', 'events', 'blogByCategories', 'blogs', 'blog', 'services'));
+    }
+
+    public function comment($id)
+    {
+        $blog = $this->blog->get($id);
+        $blogs = $this->blog->index();
+        $services = $this->service->index();
+        $events = $this->event->index();
+        $products = $this->product->index();
+        $stores = $this->store->index();
+        $service_categories = $this->service_category->index();
+        $blog_page = $this->blog_page->index();
+$faq_page = $this->faq_page->index();
+
+        return view('web.pages.blogs.comments.comment', compact('faq_page','blog_page', 'stores', 'service_categories', 'products', 'blog', 'events', 'blogs', 'blog', 'services'));
+
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

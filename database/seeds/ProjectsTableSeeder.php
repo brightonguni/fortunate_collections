@@ -1,0 +1,168 @@
+<?php
+
+use App\Model\Projects\Project;
+use Illuminate\Database\Seeder;
+
+class ProjectsTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $projects = [
+            array(
+                'id' => '1',
+                'name' => 'Glass Cleaning',
+                'description' => 'This is a spacious 3 bedroomed apartment with fitted cupboard. We can adjust to suit your requirements and do the plumping as per your request',
+                'store_id' => '1',
+                'licensor_id' => '3',
+                'team_id' => '1',
+                'service_id' => '2',
+                'category_id' => '2',
+                'avatar' => 'glass.jpg',
+                'website' => '',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '2',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'licensor_id' => '2',
+                'team_id' => '1',
+                'service_id' => '2',
+                'category_id' => '1',
+                'website' => '',
+                'avatar' => 'apartment.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '3',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'website' => '',
+                'licensor_id' => '2',
+                'team_id' => '2',
+                'service_id' => '2',
+                'category_id' => '1',
+                'avatar' => 'toilet.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '4',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'licensor_id' => '2',
+                'team_id' => '2',
+                'service_id' => '2',
+                'category_id' => '1',
+                'website' => '',
+                'avatar' => 'bathroom.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '5',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'licensor_id' => '2',
+                'team_id' => '2',
+                'service_id' => '2',
+                'category_id' => '1',
+                'website' => '',
+                'avatar' => 'kitchen.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '6',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'licensor_id' => '2',
+                'team_id' => '2',
+                'service_id' => '2',
+                'category_id' => '1',
+                'website' => '',
+                'avatar' => 'sink.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '7',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'licensor_id' => '2',
+                'team_id' => '2',
+                'service_id' => '2',
+                'category_id' => '1',
+                'website' => '',
+                'avatar' => 'shower.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+            array(
+                'id' => '8',
+                'name' => '2 bedrooms, open kitchen, 1 toilet',
+                'description' => 'this is a modern version of our wooden homes mostly known as wendy houses. the apartment will be tiled, built-in cupboards, plumping and with electricity installation on site.',
+                'store_id' => '1',
+                'licensor_id' => '2',
+                'team_id' => '2',
+                'service_id' => '2',
+                'category_id' => '1',
+                'avatar' => 'window.jpg',
+                'start_date' => '2020-02-25 00:00:00',
+                'end_time' => '2020-02-29 00:00:00',
+                'active' => '1',
+                'website' => '',
+                'created_at' => '2020-02-25 00:00:00',
+                'updated_at' => '2020-02-25 00:00:00',
+                'deleted_at' => null,
+            ),
+
+        ];
+
+        foreach ($projects as $project) {
+            Project::create($project);
+        }
+
+    }
+}
